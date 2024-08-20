@@ -131,8 +131,8 @@
                                     <td>40</td>
                                     <td>50</td>
                                     <td>
-                                        <button type="button" class="viewBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0"><i class="fa text-sm fa-eye"></i></button>
-                                        <button type="button" class="deleteBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0"><i class="fa text-sm  fa-trash-alt"></i></button>
+                                        <button type="button" class="viewBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0" data-bs-target=".details-modal" data-bs-toggle="modal"><i class="fa text-sm fa-eye"></i></button>
+                                        <button type="button" class="deleteBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0" data-bs-target=".deleteModal" data-bs-toggle="modal"><i class="fa text-sm  fa-trash-alt"></i></button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -144,8 +144,8 @@
                                     <td>40</td>
                                     <td>50</td>
                                     <td>
-                                        <button type="button" class="viewBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0"><i class="fa text-sm fa-eye"></i></button>
-                                        <button type="button" class="deleteBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0"><i class="fa text-sm  fa-trash-alt"></i></button>
+                                        <button type="button" class="viewBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0" data-bs-target=".details-modal" data-bs-toggle="modal"><i class="fa text-sm fa-eye"></i></button>
+                                        <button type="button" class="deleteBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0" data-bs-target=".deleteModal" data-bs-toggle="modal"><i class="fa text-sm  fa-trash-alt"></i></button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -157,8 +157,8 @@
                                     <td>40</td>
                                     <td>50</td>
                                     <td>
-                                        <button type="button" class="viewBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0"><i class="fa text-sm fa-eye"></i></button>
-                                        <button type="button" class="deleteBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0"><i class="fa text-sm  fa-trash-alt"></i></button>
+                                        <button type="button" class="viewBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0" data-bs-target=".details-modal" data-bs-toggle="modal"><i class="fa text-sm fa-eye"></i></button>
+                                        <button type="button" class="deleteBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0" data-bs-target=".deleteModal" data-bs-toggle="modal"><i class="fa text-sm  fa-trash-alt"></i></button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -170,8 +170,8 @@
                                     <td>40</td>
                                     <td>50</td>
                                     <td>
-                                        <button type="button" class="viewBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0"><i class="fa text-sm fa-eye"></i></button>
-                                        <button type="button" class="deleteBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0"><i class="fa text-sm  fa-trash-alt"></i></button>
+                                        <button type="button" class="viewBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0" data-bs-target=".details-modal" data-bs-toggle="modal"><i class="fa text-sm fa-eye"></i></button>
+                                        <button type="button" class="deleteBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0" data-bs-target=".deleteModal" data-bs-toggle="modal"><i class="fa text-sm  fa-trash-alt"></i></button>
                                     </td>
                                 </tr>
                                 <tr>
@@ -183,8 +183,8 @@
                                     <td>40</td>
                                     <td>50</td>
                                     <td>
-                                        <button type="button" class="viewBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0"><i class="fa text-sm fa-eye"></i></button>
-                                        <button type="button" class="deleteBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0"><i class="fa text-sm  fa-trash-alt"></i></button>
+                                        <button type="button" class="viewBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0" data-bs-target=".details-modal" data-bs-toggle="modal"><i class="fa text-sm fa-eye"></i></button>
+                                        <button type="button" class="deleteBtn btn btn-outline-dark text-sm px-3 py-1 btn-sm m-0" data-bs-target=".deleteModal" data-bs-toggle="modal"><i class="fa text-sm  fa-trash-alt"></i></button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -195,7 +195,7 @@
         </div>
         
         
-        <div class="modal animated zoomIn" id="delete-modal">
+        <div class="modal animated zoomIn deleteModal" id="delete-modal">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body text-center">
@@ -214,7 +214,7 @@
         </div>
         
         <!-- Modal -->
-        <div class="modal animated zoomIn" id="details-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal animated zoomIn details-modal" id="details-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -223,49 +223,51 @@
                     </div>
                     <div id="invoice" class="modal-body p-3">
                         <div class="container-fluid">
-                            <br/>
+                            <br>
                             <div class="row">
                                 <div class="col-8">
                                     <span class="text-bold text-dark">BILLED TO </span>
-                                    <p class="text-xs mx-0 my-1">Name:  <span id="CName"></span> </p>
-                                    <p class="text-xs mx-0 my-1">Email:  <span id="CEmail"></span></p>
-                                    <p class="text-xs mx-0 my-1">User ID:  <span id="CId"></span> </p>
+                                    <p class="text-xs mx-0 my-1">Name:  <span id="CName">IRS IT</span> </p>
+                                    <p class="text-xs mx-0 my-1">Email:  <span id="CEmail">sdsd@sd.com</span></p>
+                                    <p class="text-xs mx-0 my-1">User ID:  <span id="CId">1</span> </p>
                                 </div>
                                 <div class="col-4">
                                     <img class="w-40" src="images/logo.png">
                                     <p class="text-bold mx-0 my-1 text-dark">Invoice  </p>
-                                    <p class="text-xs mx-0 my-1">Date: 2024-08-19 </p>
+                                    <p class="text-xs mx-0 my-1">Date: 2024-08-20 </p>
                                 </div>
                             </div>
-                            <hr class="mx-0 my-2 p-0 bg-secondary"/>
+                            <hr class="mx-0 my-2 p-0 bg-secondary">
                             <div class="row">
                                 <div class="col-12">
                                     <table class="table w-100" id="invoiceTable">
                                         <thead class="w-100">
-                                            <tr class="text-xs text-bold">
-                                                <td>Name</td>
-                                                <td>Qty</td>
-                                                <td>Total</td>
-                                            </tr>
+                                        <tr class="text-xs text-bold">
+                                            <td>Name</td>
+                                            <td>Qty</td>
+                                            <td>Total</td>
+                                        </tr>
                                         </thead>
-                                        <tbody  class="w-100" id="invoiceList">
-                                            
-                                        </tbody>
+                                        <tbody class="w-100" id="invoiceList"><tr class="text-xs">
+                            <td>sd</td>
+                            <td>7</td>
+                            <td>364.00</td>
+                         </tr></tbody>
                                     </table>
                                 </div>
                             </div>
-                            <hr class="mx-0 my-2 p-0 bg-secondary"/>
+                            <hr class="mx-0 my-2 p-0 bg-secondary">
                             <div class="row">
                                 <div class="col-12">
-                                    <p class="text-bold text-xs my-1 text-dark"> TOTAL: <i class="bi bi-currency-dollar"></i> <span id="total"></span></p>
-                                    <p class="text-bold text-xs my-2 text-dark"> PAYABLE: <i class="bi bi-currency-dollar"></i>  <span id="payable"></span></p>
-                                    <p class="text-bold text-xs my-1 text-dark"> VAT(5%): <i class="bi bi-currency-dollar"></i>  <span id="vat"></span></p>
-                                    <p class="text-bold text-xs my-1 text-dark"> Discount: <i class="bi bi-currency-dollar"></i>  <span id="discount"></span></p>
+                                    <p class="text-bold text-xs my-1 text-dark"> TOTAL: <i class="bi bi-currency-dollar"></i> <span id="total">364</span></p>
+                                    <p class="text-bold text-xs my-2 text-dark"> PAYABLE: <i class="bi bi-currency-dollar"></i>  <span id="payable">382.20</span></p>
+                                    <p class="text-bold text-xs my-1 text-dark"> VAT(5%): <i class="bi bi-currency-dollar"></i>  <span id="vat">18.20</span></p>
+                                    <p class="text-bold text-xs my-1 text-dark"> Discount: <i class="bi bi-currency-dollar"></i>  <span id="discount">0</span></p>
                                 </div>
-                                
+    
                             </div>
                         </div>
-                    </div>
+                </div>
                     <div class="modal-footer">
                         <button type="button" class="btn bg-gradient-primary" data-bs-dismiss="modal">Close</button>
                         <button onclick="PrintPage()" class="btn bg-gradient-success">Print</button>
