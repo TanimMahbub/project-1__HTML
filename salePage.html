@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>Sales</title>
+    <link href="./images/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+    
+    <link href="./css/bootstrap.css" rel="stylesheet" />
+    <link href="./css/animate.min.css" rel="stylesheet" />
+    <link href="./css/fontawesome.css" rel="stylesheet" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <link href="./css/toastify.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="./css/jquery.dataTables.min.css" rel="stylesheet" />
+    
+    <script src="./js/jquery-3.7.0.min.js"></script>
+    <script src="./js/jquery.dataTables.min.js"></script>
+    <script src="./js/toastify-js.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/bootstrap.bundle.js"></script>
+</head>
+
+<body>
+    
+    <nav class="navbar fixed-top px-0 shadow-sm bg-white">
+        <div class="container-fluid">
+            
+            <a class="navbar-brand" href="#">
+                <span class="icon-nav m-0 h5" onclick="MenuBarClickHandler()">
+                    <img class="nav-logo-sm mx-2"  src="./images/menu.svg" alt="logo"/>
+                </span>
+                <img class="nav-logo  mx-2"  src="./images/logo.png" alt="logo"/>
+            </a>
+            
+            <div class="float-right h-auto d-flex">
+                <div class="user-dropdown">
+                    <img class="icon-nav-img" src="./images/user.webp" alt=""/>
+                    <div class="user-dropdown-content ">
+                        <div class="mt-4 text-center">
+                            <img class="icon-nav-img" src="./images/user.webp" alt=""/>
+                            <h6>User Name</h6>
+                            <hr class="user-dropdown-divider  p-0"/>
+                        </div>
+                        <a href="userProfile.html" class="side-bar-item">
+                            <span class="side-bar-item-caption">Profile</span>
+                        </a>
+                        <a href="index.html" class="side-bar-item">
+                            <span class="side-bar-item-caption">Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    
+    <div id="sideNavRef" class="side-nav-open">
+        <a href="dashboard.html" class="side-bar-item">
+            <i class="bi bi-graph-up"></i>
+            <span class="side-bar-item-caption">Dashboard</span>
+        </a>
+        
+        <a href="customerPage.html" class="side-bar-item">
+            <i class="bi bi-people"></i>
+            <span class="side-bar-item-caption">Customer</span>
+        </a>
+        
+        <a href="categoryPage.html" class="side-bar-item">
+            <i class="bi bi-list-nested"></i>
+            <span class="side-bar-item-caption">Category</span>
+        </a>
+        
+        <a href="productPage.html" class="side-bar-item">
+            <i class="bi bi-bag"></i>
+            <span class="side-bar-item-caption">Product</span>
+        </a>
+        
+        <a href="salePage.html" class="side-bar-item">
+            <i class="bi bi-currency-dollar"></i>
+            <span class="side-bar-item-caption">Create Sale</span>
+        </a>
+        
+        <a href="invoicePage.html" class="side-bar-item">
+            <i class="bi bi-receipt"></i>
+            <span class="side-bar-item-caption">Invoice</span>
+        </a>
+        
+        <a href="reportPage.html" class="side-bar-item">
+            <i class="bi bi-file-earmark-bar-graph"></i>
+            <span class="side-bar-item-caption">Report</span>
+        </a>
+    </div>
+    
+    
+    <div id="contentRef" class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4 col-lg-4 p-2">
+                    <div class="shadow-sm h-100 bg-white rounded-3 p-3">
+                        <div class="row">
+                            <div class="col-8">
+                                <span class="text-bold text-dark">BILLED TO </span>
+                                <p class="text-xs mx-0 my-1">Name:  <span id="CName"></span> </p>
+                                <p class="text-xs mx-0 my-1">Email:  <span id="CEmail"></span></p>
+                                <p class="text-xs mx-0 my-1">User ID:  <span id="CId"></span> </p>
+                            </div>
+                            <div class="col-4">
+                                <img class="w-50" src="images/logo.png">
+                                <p class="text-bold mx-0 my-1 text-dark">Invoice  </p>
+                                <p class="text-xs mx-0 my-1">Date: 2024-08-19 </p>
+                            </div>
+                        </div>
+                        <hr class="mx-0 my-2 p-0 bg-secondary"/>
+                        <div class="row">
+                            <div class="col-12">
+                                <table class="table w-100" id="invoiceTable">
+                                    <thead class="w-100">
+                                        <tr class="text-xs">
+                                            <td>Name</td>
+                                            <td>Qty</td>
+                                            <td>Total</td>
+                                            <td>Remove</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody  class="w-100" id="invoiceList">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <hr class="mx-0 my-2 p-0 bg-secondary"/>
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="text-bold text-xs my-1 text-dark"> TOTAL: <i class="bi bi-currency-dollar"></i> <span id="total"></span></p>
+                                <p class="text-bold text-xs my-2 text-dark"> PAYABLE: <i class="bi bi-currency-dollar"></i>  <span id="payable"></span></p>
+                                <p class="text-bold text-xs my-1 text-dark"> VAT(5%): <i class="bi bi-currency-dollar"></i>  <span id="vat"></span></p>
+                                <p class="text-bold text-xs my-1 text-dark"> Discount: <i class="bi bi-currency-dollar"></i>  <span id="discount"></span></p>
+                                <span class="text-xxs">Discount(%):</span>
+                                <input onkeydown="return false" value="0" min="0" type="number" step="0.25" onchange="DiscountChange()" class="form-control w-40 " id="discountP"/>
+                                <p>
+                                    <button onclick="createInvoice()" class="btn  my-3 bg-gradient-primary w-40">Confirm</button>
+                                </p>
+                            </div>
+                            <div class="col-12 p-2">
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-lg-4 p-2">
+                    <div class="shadow-sm h-100 bg-white rounded-3 p-3">
+                        <table class="table  w-100" id="productTable">
+                            <thead class="w-100">
+                                <tr class="text-xs text-bold">
+                                    <td>Product</td>
+                                    <td>Pick</td>
+                                </tr>
+                            </thead>
+                            <tbody  class="w-100" id="productList">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 col-lg-4 p-2">
+                    <div class="shadow-sm h-100 bg-white rounded-3 p-3">
+                        <table class="table table-sm w-100" id="customerTable">
+                            <thead class="w-100">
+                                <tr class="text-xs text-bold">
+                                    <td>Customer</td>
+                                    <td>Pick</td>
+                                </tr>
+                            </thead>
+                            <tbody  class="w-100" id="customerList">
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="modal animated zoomIn" id="create-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title" id="exampleModalLabel">Add Product</h6>
+                    </div>
+                    <div class="modal-body">
+                        <form id="add-form">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12 p-1">
+                                        <label class="form-label">Product ID *</label>
+                                        <input type="text" class="form-control" id="PId">
+                                        <label class="form-label mt-2">Product Name *</label>
+                                        <input type="text" class="form-control" id="PName">
+                                        <label class="form-label mt-2">Product Price *</label>
+                                        <input type="text" class="form-control" id="PPrice">
+                                        <label class="form-label mt-2">Product Qty *</label>
+                                        <input type="text" class="form-control" id="PQty">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="modal-close" class="btn bg-gradient-primary" data-bs-dismiss="modal" aria-label="Close">Close</button>
+                        <button onclick="add()" id="save-btn" class="btn bg-gradient-success" >Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
